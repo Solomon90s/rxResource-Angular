@@ -1,4 +1,4 @@
-import { Location } from '@angular/common';
+import { Location, NgOptimizedImage } from '@angular/common';
 import {
   Component,
   inject,
@@ -8,15 +8,15 @@ import {
 } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from '@interfaces/product.interface';
+import type { Product } from '@interfaces/product.interface';
 import { ProductService } from '@services/product.service';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './product-detail.html',
 })
-export class ProductDetail {
+export default class ProductDetail {
   private readonly location: Location = inject(Location);
   private readonly productService: ProductService = inject(ProductService);
   private readonly activatedRoute: ActivatedRoute = inject(ActivatedRoute);
@@ -34,7 +34,7 @@ export class ProductDetail {
   //! Leer id de la url con el activatedRoute
   public id: number = this.activatedRoute.snapshot.params['id'];
   productResource: ResourceRef<Product | undefined> = rxResource({
-    request: () => ({ id: this.id }),
+    request: (): { id: number } => ({ id: this.id }),
     loader: ({ request }) => {
       return this.productService.getProduct(request.id);
     },

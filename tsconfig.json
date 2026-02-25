@@ -6,7 +6,8 @@
     "paths": {
       "@environments/*": ["./src/environments/*"],
       "@interfaces/*": ["./src/app/interfaces/*"],
-      "@services/*": ["./src/app/services/*"]
+      "@services/*": ["./src/app/services/*"],
+      "@pages/*": ["./src/app/pages/*"]
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

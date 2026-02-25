@@ -1,10 +1,10 @@
-<section class="my-5 w-full min-h-screen">
+<section class="my-5 w-full flex flex-col min-h-screen">
   <hgroup class="flex flex-col w-full flex-wrap">
-    <h1 class="text-4xl self-center text-balance font-bold">
+    <h1 class="text-4xl underline self-center text-balance font-bold">
       Página de detalle del producto
     </h1>
   </hgroup>
-  <p>
+  <p class="my-5">
     loading:
     <span
       [class.text-green-400]="productResource.isLoading() === true"
@@ -29,16 +29,18 @@
     <h2 class="text-3xl font-bold">{{productResource.value().title }}</h2>
     <p class="my-2">{{productResource.value().description}}</p>
     <img
-      class="w-48"
-      [src]="productResource.value().image"
-      [alt]="productResource.value().title"
+      [ngSrc]="productResource.value().image"
+      width="434"
+      height="575"
+      alt="{{productResource.value().title}}"
+      class="w-48 object-contain my-2 hover:opacity-55"
     />
     }
     <!---->
   </section>
   <button
     (click)="goBack()"
-    class="rounded-full my-1.5 cursor-pointer w-32 p-3 bg-sky-400 hover:bg-sky-500"
+    class="rounded-full self-start my-1.5 cursor-pointer w-32 p-3 bg-sky-400 hover:bg-sky-500"
   >
     Volver atrás
   </button>

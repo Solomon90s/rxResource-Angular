@@ -2,7 +2,7 @@ import { Component, inject, ResourceRef } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Product } from '@interfaces/product.interface';
+import type { Product } from '@interfaces/product.interface';
 import { ProductService } from '@services/product.service';
 
 @Component({

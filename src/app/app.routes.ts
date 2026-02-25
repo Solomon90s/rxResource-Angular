@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomePage } from './pages/home-page/home-page';
-import { ProductDetail } from './pages/product-detail/product-detail';
+import { HomePage } from '@pages/home-page/home-page';
 
 export const routes: Routes = [
   {
@@ -10,7 +9,7 @@ export const routes: Routes = [
   },
   {
     path: 'product-detail/:id',
-    component: ProductDetail,
+    loadComponent: () => import('./pages/product-detail/product-detail'),
     title: 'Página de detalle',
   },
   {
