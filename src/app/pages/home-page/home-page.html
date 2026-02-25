@@ -1,0 +1,46 @@
+<section class="my-5 w-full">
+  <hgroup class="flex flex-col w-full flex-wrap">
+    <h1 class="text-4xl self-center text-balance font-bold">
+      Explicación de como usar el rxResource
+    </h1>
+    <p class="text-balance my-5">
+      Ejemplo de la nueva característica
+      <a
+        class="link text-sky-400 hover:text-sky-600"
+        title="explicación rxResource por NicoBytes"
+        href="https://www.youtube.com/watch?v=ab4lp7HZ6-o"
+        target="_blank"
+        rel="noopener noreferrer"
+        >rxResource</a
+      >
+      para realizar peticiones HTTP.
+    </p>
+  </hgroup>
+  <h2 class="text-3xl font-bold">Listado de productos</h2>
+  <p>
+    loading:
+    <span
+      [class.text-green-400]="productResource.isLoading() === true"
+      [class.text-red-400]="productResource.isLoading() === false"
+      >{{productResource.isLoading()}}
+    </span>
+  </p>
+  <ul class="list-disc ml-5 my-2 list-inside">
+    @for (product of productResource.value(); track product.id) {
+    <li class="py-2">
+      <a
+        class="link hover:text-blue-400"
+        [routerLink]="['/product-detail', product.id]"
+      >
+        {{product.title}}
+      </a>
+      <!-- <a
+        class="link hover:text-blue-400"
+        routerLink="/product-detail/{{product.id}}"
+      >
+        {{product.title}}
+      </a> -->
+    </li>
+    }
+  </ul>
+</section>
